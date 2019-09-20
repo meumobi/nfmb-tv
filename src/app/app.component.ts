@@ -20,12 +20,11 @@ export class AppComponent implements OnInit {
 
     this.items$.subscribe(data => {
       this.sliderLength = data.length;
-      console.log('Slides number: ', this.sliderLength);
     });
 
     setInterval(() => {
       this.updateCurrentSlide();
-    }, 2000);
+    }, 15000);
   }
 
   private updateCurrentSlide() {

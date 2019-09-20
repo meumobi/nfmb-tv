@@ -1,52 +1,49 @@
 <div id="content" role="main">
   <section *ngFor="let item of items$ | async; let i = index;">
     <section *ngIf="isActive(i)">
-  <div class="grid-parent -no-row-spacing homepage-hero">
-    <div class="grid-item grid-span-12 homepage-hero__container">
+      <div class="grid-parent -no-row-spacing homepage-hero">
+        <div class="grid-item grid-span-12 homepage-hero__container">
+          <img class="homepage-hero__image" [src]="item.imageUrl" role="presentation" *ngIf="item.imageUrl; else imagePlaceholder">
 
-      <picture class="homepage-hero__image">
-        <!--[if IE 9]><video style="display: none;"><![endif]-->
+          <ng-template #imagePlaceholder>
+            <picture class="homepage-hero__image">
+              <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source
+                srcset="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w2880, https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w5760 2x"
+                media="(min-width: 1440px)">
+              <source
+                srcset="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w2048, https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w4096 2x"
+                media="(min-width: 1024px)">
+              <source
+                srcset="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w1200, https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w2400 2x">
+              <!--[if IE 9]></video><![endif]-->
+              <img
+                src="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w1200"
+                class="" role="presentation" alt="">
+            </picture>
+          </ng-template>
 
-
-        <source
-          srcset="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w2880, https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w5760 2x"
-          media="(min-width: 1440px)">
-
-
-        <source
-          srcset="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w2048, https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w4096 2x"
-          media="(min-width: 1024px)">
-
-
-        <source
-          srcset="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w1200, https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w2400 2x">
-        <!--[if IE 9]></video><![endif]-->
-
-        <img
-          src="https://lh3.googleusercontent.com/0PBviRn_6kfKmNDkh3RLrh64-Hay63ZafqDmC8pJdxgsw36_ddkjdTqFfRyZLp3vVMBf5gvxsMH6dGot5AFPpEsNn2qYdMhlsBww7Q=w1200"
-          class="" role="presentation" alt="">
-      </picture>
-
-      <div class="homepage-hero__content">
-        <div class="homepage-hero__content-headline">
-          <div class="homepage-hero__content-headline-box">
-            <h1 class="h-c-headline">{{ item.title }}</h1>
+          <div class="homepage-hero__content">
+            <div class="homepage-hero__content-headline">
+              <div class="homepage-hero__content-headline-box">
+                <h1 class="h-c-headline">{{ item.title }}</h1>
+              </div>
+            </div>
+            <div class="homepage-hero__content-headline-aux">
+              <span class="h-c-headline">Notícias</span>
+            </div>
+            <div class="homepage-hero__content-lines"></div>
           </div>
-        </div>
-        <div class="homepage-hero__content-headline-aux">
-          <span class="h-c-headline">Notícias</span>
-        </div>
-        <div class="homepage-hero__content-lines"></div>
-      </div>
 
-    </div>
-  </div>
-  <div class="grid-parent -no-row-spacing">
-    <div class="grid-item grid-span-1 blockquote__logo">fdf</div>
-    <div class="grid-item grid-span-10 h-c-headline h-c-headline--three homepage-hero__sub-headline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio nibh, tincidunt eget tristique nec, tristique ac libero.</div>
-    <div class="grid-item grid-span-1 blockquote__qrcode">fdf</div>
-  
-  </div>
-</section>
-</section>
+        </div>
+      </div>
+      <div class="grid-parent -no-row-spacing">
+        <div class="grid-item grid-span-1 blockquote__logo">fdf</div>
+        <div class="grid-item grid-span-10 h-c-headline h-c-headline--three homepage-hero__sub-headline">
+          {{ item.description }}</div>
+        <div class="grid-item grid-span-1 blockquote__qrcode">fdf</div>
+
+      </div>
+    </section>
+  </section>
 </div>
